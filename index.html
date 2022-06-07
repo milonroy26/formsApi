@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <div>
+        <input type="number" name="input" id="num1" min="50" max="100"><br><br>
+        <button onclick="myFunction()">OK</button><br>
+        <p id="demo">Mesage: </p>
+    </div>
+
+    <script>
+        function myFunction(){
+            const mainInput = document.getElementById('num1');
+
+            if(mainInput.validity.rangeOverflow){
+                mainInput.setCustomValidity("You Have Made a Range Overflow");
+            }
+            else if(mainInput.validity.rangeUnderflow){
+                mainInput.setCustomValidity("You Have a Range Underflow");
+            }
+            if(!mainInput.checkValidity()){
+                document.getElementById('demo').innerHTML = mainInput.validationMessage;
+            }
+        }
+    </script>
+</body>
+</html>
